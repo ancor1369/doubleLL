@@ -5,8 +5,8 @@
  *      Author: andres
  */
 
-#ifndef DDL_H_
-#define DDL_H_
+#ifndef DLL_H_
+#define DLL_H_
 
 typedef struct dll_node_{
 	void *data;
@@ -16,13 +16,21 @@ typedef struct dll_node_{
 
 typedef struct ddl_{
 	dll_node_t *head;
+	int (*key_match)(void *, void*); //This is a function pointer
 }dll_t;
 
 /*Public functions to intereact with the double linked list*/
+
+void register_key_match_callback(dll_t *dll, int (*key_match)(void *, void*));
 
 dll_t * get_new_ddl();
 
 int add_data_to_dll(dll_t *dll, void *app_data);
 
+int remove_data_from_dll_by_data_ptr(dll_t *dll, void *data);
 
-#endif /* DDL_H_ */
+int is_dll_empty(dll_t *dll);
+
+void drain_dll(dll_t *dll);
+
+#endif /* DLL_H_ */
