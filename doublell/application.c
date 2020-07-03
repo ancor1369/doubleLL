@@ -20,17 +20,26 @@ static void print_person_details(person_t *person){
 
 static void print_person_db(dll_t *person_db)
 {
-	if(!person_db || !person_db->head) return;
+//	OLD code
+//	if(!person_db || !person_db->head) return;
+//
+//	dll_node_t *head=person_db->head;
+//	person_t *data = NULL;
+//
+//	while(head)
+//	{
+//		data = head->data;
+//		print_person_details(data);
+//		head = head->right;
+//	}
 
-	dll_node_t *head=person_db->head;
-	person_t *data = NULL;
-
-	while(head)
+	dll_node_t * temp = NULL;
+	person_t * data = NULL;
+	ITERATE_LIST_BEGIN(person_db, temp)
 	{
-		data = head->data;
+		data = temp->data;
 		print_person_details(data);
-		head = head->right;
-	}
+	}ITERATE_LIST_END;
 
 }
 
