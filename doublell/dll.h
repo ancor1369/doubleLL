@@ -33,4 +33,6 @@ int is_dll_empty(dll_t *dll);
 
 void drain_dll(dll_t *dll);
 
+void * dll_search_by_key(dll_t *dll, void *key);
+
 #endif /* DLL_H_ */

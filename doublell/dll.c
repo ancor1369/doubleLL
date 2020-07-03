@@ -45,7 +45,7 @@ void register_key_match_callback(dll_t *dll, int (*key_match)(void *, void*))
 void * dll_search_by_key(dll_t *dll, void *key){
 	if(!dll || !dll->head) return NULL;
 	dll_node_t *head = dll->head;
-	while(!head)
+	while(head)
 	{
 		//Next line invokes the method implemented in the client code
 		if(dll->key_match(head->data, key)==0)

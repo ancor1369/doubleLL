@@ -12,6 +12,7 @@ typedef struct person_{
 }person_t;
 
 static void print_person_details(person_t *person){
+	printf("ID=%d\n", person->id);
 	printf("Name = %s\n", person->name);
 	printf("Age = %d\n", person->age);
 	printf("Weight = %d\n", person->weight);

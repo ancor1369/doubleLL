@@ -1,5 +1,5 @@
 TARGET: application
-
+fld = object
 
 dll.o:dll.c
 	gcc -c dll.c -o dll.o
@@ -11,9 +11,8 @@ dll_util.o:dll_util.c
 libdll.a: dll.o dll_util.o
 	ar rs libdll.a dll.o dll_util.o
 
-
 application: application.o libdll.a
-	gcc application.o -o application -L . libdll.a
+	gcc application.o -o application -L libdll.a
 
 application.o:application.c
 	gcc -c application.c -o application.o
